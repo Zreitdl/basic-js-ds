@@ -27,8 +27,13 @@ class Queue {
   enqueue(value) {
     const node = new ListNode(value);
 
+    if (this.firstNode === null) {
+      this.firstNode = node;
+      return;
+    }
+
     let currentNode = this.firstNode;
-    while (currentNode.next != null) {
+    while (currentNode.next !== null) {
       currentNode = currentNode.next;
     }
 
@@ -41,13 +46,6 @@ class Queue {
     return result;
   }
 }
-
-const queue = new Queue();
-queue.enqueue(5);
-queue.enqueue(6);
-queue.enqueue(7);
-const ff = queue.getUnderlyingList();
-console.log(ff);
 
 module.exports = {
   Queue
